@@ -2,7 +2,11 @@
 
 namespace DirectoryApp.Models.DatabaseModels {
     public class Member {
-        
+
+        public Member() {
+            UUID = Guid.NewGuid().ToString();
+        }
+
         [Key]
         public string UUID { get; set; }
         public string FullName { get; set; }

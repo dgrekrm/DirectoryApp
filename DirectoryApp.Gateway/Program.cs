@@ -16,9 +16,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddOcelot();
-builder.Services.AddDbContext<TableContext>(s => s.UseNpgsql("Server=127.0.0.1;Port=5432;Database=DirectoryApp;User Id=postgres;Password=Qasx7865"));
-builder.Services.AddScoped<IRepository<Member>, MemberRepository>();
-builder.Services.AddScoped<IRepository<MemberContact>, MemberContactRepository>();
+//builder.Services.AddDbContext<TableContext>(s => s.UseNpgsql("Server=127.0.0.1;Port=5432;Database=DirectoryApp;User Id=postgres;Password=Qasx7865"));
+//builder.Services.AddScoped<IRepository<Member>, MemberRepository>();
+//builder.Services.AddScoped<IRepository<MemberContact>, MemberContactRepository>();
 
 builder.WebHost.ConfigureAppConfiguration((host, config) => {
     config.AddJsonFile("ocelot.json");

@@ -8,32 +8,30 @@ namespace DirectoryApp.CrudService.Controllers {
     [ApiController]
     public class MemberController : ControllerBase {
 
-        private readonly IRepository<Member> _memberRepository;
+        private readonly IRepository<MemberContact> _memberContactRepository;
 
-        public MemberController(IRepository<Member> memberRepository) {
-            _memberRepository = memberRepository;
-        }
-
-        [HttpGet]
-        public IActionResult Get() {
-            var members = _memberRepository.GetAll();
-            return Ok(members);
+        public MemberController(IRepository<MemberContact> memberContactRepository) {
+            _memberContactRepository = memberContactRepository;
         }
 
         [HttpPost]
         [Route("create")]
         public async Task<IActionResult> Create([FromBody] CreateMemberRequest createMemberRequest) {
-
-            try {
-                await _memberRepository.Create(new Member {
+            
+            await _memberContactRepository.Create(new MemberContact {
+                Content = createMemberRequest.Content,
+                Email = createMemberRequest.Email,
+                Location = createMemberRequest.Location,
+                Member = new Member { 
                     Company = createMemberRequest.Company,
-                    FullName = createMemberRequest.FullName
-                });
+                    FullName = createMemberRequest.FullName 
+                },
+                PhoneNumber = createMemberRequest.PhoneNumber
+            });
 
-                return Ok();
-            } catch(Exception ex) {
-                return Ok(ex.ToString());
-            }
+            await _memberContactRepository.SaveChanges();
+
+            return Ok();
         }
 
     }

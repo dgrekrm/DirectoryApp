@@ -18,7 +18,6 @@ IHost host = Host.CreateDefaultBuilder(args)
 var memberRepository = host.Services.GetService<IRepository<MemberContact>>();
 
 memberRepository.Create(new MemberContact {
-    UUID = Guid.NewGuid().ToString(),
     Content = "CONTENT",
     Email = "EMAIL",
     Location = "LOCATION",
