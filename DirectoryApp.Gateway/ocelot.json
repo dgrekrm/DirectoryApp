@@ -1,6 +1,36 @@
 {
   "Routes": [
     {
+      "UpstreamPathTemplate": "/member",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/api/member",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6501
+        }
+      ],
+      "Key": "Member"
+    },
+    {
+      "UpstreamPathTemplate": "/member/detail",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/api/member/detail",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6501
+        }
+      ],
+      "Key": "Member"
+    }
+    {
       "UpstreamPathTemplate": "/member/create",
       "UpstreamHttpMethod": [
         "Post"
