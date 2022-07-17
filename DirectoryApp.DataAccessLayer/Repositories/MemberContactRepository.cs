@@ -1,6 +1,7 @@
 ﻿using DirectoryApp.DataAccessLayer.BaseModels;
 using DirectoryApp.Models;
 using DirectoryApp.Models.DatabaseModels;
+using System.Linq.Expressions;
 
 namespace DirectoryApp.DataAccessLayer.Repositories {
     public class MemberContactRepository : IRepository<MemberContact> {
@@ -11,20 +12,34 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
             _tableContext = tableContext;
         }
 
-        public void Create(MemberContact entity) {
-            _tableContext.MemberContacts.Add(entity);
+        public async Task Create(MemberContact entity) {
+            entity.CreateDate = DateTime.Now;
+            await _tableContext.MemberContacts.AddAsync(entity);
+        }
+
+        public IEnumerable<MemberContact> Get(Expression<Func<MemberContact, bool>> expression) {
+            return _tableContext.MemberContacts.Where(expression);
+        }
+
+        public async Task<MemberContact> Find(string id) {
+            return await _tableContext.MemberContacts.FindAsync(id);
         }
 
         public IEnumerable<MemberContact> GetAll() {
-            throw new NotImplementedException();
+            return _tableContext.MemberContacts.ToList();
         }
 
-        public void SaveChanges() {
-            _tableContext.SaveChanges();
+        public async Task SaveChanges() {
+            await _tableContext.SaveChangesAsync();
         }
 
-        public void Update(MemberContact entity) {
-            throw new NotImplementedException();
+        public async Task Update(MemberContact entity) {
+            var memberContacts = _tableContext.MemberContacts.Where(s => s.MemberId == entity.MemberId);
+
+            foreach(var memberContact in memberContacts) memberContact.IsDeleted = true;
+
+            entity.CreateDate = DateTime.Now;
+            await _tableContext.MemberContacts.AddAsync(entity);
         }
     }
 }

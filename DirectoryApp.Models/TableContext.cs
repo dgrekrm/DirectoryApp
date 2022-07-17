@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DirectoryApp.Models {
     public class TableContext : DbContext {
+        public TableContext() { }
         public TableContext(DbContextOptions<TableContext> options) : base(options) { }
         public DbSet<Member> Members { get; set; }
         public DbSet<MemberContact> MemberContacts { get; set; }

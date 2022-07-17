@@ -3,6 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DirectoryApp.Models.DatabaseModels {
     public class MemberContact {
+
+        public MemberContact() {
+            UUID = Guid.NewGuid().ToString();
+        }
+        
         [Key]
         public string UUID { get; set; }
         public string PhoneNumber { get; set; }
@@ -14,5 +19,8 @@ namespace DirectoryApp.Models.DatabaseModels {
 
         [ForeignKey(nameof(MemberId))]
         public Member Member { get; set; }
+        public DateTime CreateDate { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

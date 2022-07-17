@@ -1,6 +1,7 @@
 ﻿using DirectoryApp.DataAccessLayer.BaseModels;
 using DirectoryApp.Models;
 using DirectoryApp.Models.DatabaseModels;
+using System.Linq.Expressions;
 
 namespace DirectoryApp.DataAccessLayer.Repositories {
     public class MemberRepository : IRepository<Member> {
@@ -11,19 +12,28 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
             _tableContext = tableContext;
         }
 
-        public void Create(Member entity) {
-            _tableContext.Members.Add(entity);
+        public async Task Create(Member entity) {
+            entity.CreateDate = DateTime.Now;
+            await _tableContext.Members.AddAsync(entity);
         }
 
         public IEnumerable<Member> GetAll() {
+            return _tableContext.Members.ToList();
+        }
+
+        public async Task<Member> Find(string id) {
+            return await _tableContext.Members.FindAsync(id);
+        }
+
+        public async Task SaveChanges() {
+            await _tableContext.SaveChangesAsync();
+        }
+
+        public async Task Update(Member entity) {
             throw new NotImplementedException();
         }
 
-        public void SaveChanges() {
-            _tableContext.SaveChanges();
-        }
-
-        public void Update(Member entity) {
+        public IEnumerable<Member> Get(Expression<Func<Member, bool>> expression) {
             throw new NotImplementedException();
         }
     }
