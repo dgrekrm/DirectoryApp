@@ -1,6 +1,7 @@
 ﻿using DirectoryApp.DataAccessLayer.BaseModels;
 using DirectoryApp.Models;
 using DirectoryApp.Models.DatabaseModels;
+using System.Linq.Expressions;
 
 namespace DirectoryApp.DataAccessLayer.Repositories {
     public class MemberContactRepository : IRepository<MemberContact> {
@@ -15,6 +16,14 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
             await _tableContext.MemberContacts.AddAsync(entity);
         }
 
+        public IEnumerable<MemberContact> Get(Expression<Func<MemberContact, bool>> expression) {
+            return _tableContext.MemberContacts.Where(expression);
+        }
+
+        public async Task<MemberContact> Find(string id) {
+            return await _tableContext.MemberContacts.FindAsync(id);
+        }
+
         public IEnumerable<MemberContact> GetAll() {
             return _tableContext.MemberContacts.ToList();
         }
@@ -24,7 +33,11 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
         }
 
         public async Task Update(MemberContact entity) {
-            throw new NotImplementedException();
+            var memberContacts = _tableContext.MemberContacts.Where(s => s.MemberId == entity.MemberId);
+
+            foreach(var memberContact in memberContacts) memberContact.IsDeleted = true;
+
+            await _tableContext.MemberContacts.AddAsync(entity);
         }
     }
 }
