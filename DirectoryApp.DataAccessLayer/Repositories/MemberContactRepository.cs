@@ -13,6 +13,7 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
         }
 
         public async Task Create(MemberContact entity) {
+            entity.CreateDate = DateTime.Now;
             await _tableContext.MemberContacts.AddAsync(entity);
         }
 
@@ -37,6 +38,7 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
 
             foreach(var memberContact in memberContacts) memberContact.IsDeleted = true;
 
+            entity.CreateDate = DateTime.Now;
             await _tableContext.MemberContacts.AddAsync(entity);
         }
     }

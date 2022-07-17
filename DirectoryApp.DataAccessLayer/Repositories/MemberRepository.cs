@@ -13,6 +13,7 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
         }
 
         public async Task Create(Member entity) {
+            entity.CreateDate = DateTime.Now;
             await _tableContext.Members.AddAsync(entity);
         }
 

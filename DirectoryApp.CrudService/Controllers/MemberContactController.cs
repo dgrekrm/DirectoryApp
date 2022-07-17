@@ -17,7 +17,7 @@ namespace DirectoryApp.CrudService.Controllers {
         [HttpPost]
         [Route("updcontact")]
         public async Task<IActionResult> UpdateMemberContact([FromBody] UpdateContactRequest updateContactRequest) {
-            
+
             await _memberContactRepository.Update(new MemberContact {
                 Content = updateContactRequest.Content,
                 Email = updateContactRequest.Email,
@@ -25,6 +25,19 @@ namespace DirectoryApp.CrudService.Controllers {
                 PhoneNumber = updateContactRequest.PhoneNumber,
                 MemberId = updateContactRequest.MemberId
             });
+
+            await _memberContactRepository.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("delcontact")]
+        public async Task<IActionResult> DeleteMemberContact([FromBody] string memberId) {
+            
+            var memberContacts = _memberContactRepository.Get(s => s.MemberId == memberId);
+
+            memberContacts.ToList().ForEach(s => s.IsDeleted = true);
 
             await _memberContactRepository.SaveChanges();
 

@@ -46,6 +46,21 @@
       "Key": "Member"
     },
     {
+      "UpstreamPathTemplate": "/membercontact/delcontact",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "DownstreamPathTemplate": "/api/membercontact/delcontact",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6501
+        }
+      ],
+      "Key": "Member"
+    },
+    {
       "UpstreamPathTemplate": "/weatherforecast",
       "UpstreamHttpMethod": [
         "Get"

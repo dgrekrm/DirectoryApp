@@ -19,6 +19,7 @@ namespace DirectoryApp.Models.DatabaseModels {
 
         [ForeignKey(nameof(MemberId))]
         public Member Member { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public bool IsDeleted { get; set; }
     }

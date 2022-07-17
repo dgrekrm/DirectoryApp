@@ -26,7 +26,8 @@ namespace DirectoryApp.CrudService.Controllers {
                 Location = createMemberRequest.Location,
                 Member = new Member {
                     Company = createMemberRequest.Company,
-                    FullName = createMemberRequest.FullName
+                    FullName = createMemberRequest.FullName,
+                    CreateDate = DateTime.Now,
                 },
                 PhoneNumber = createMemberRequest.PhoneNumber
             });
