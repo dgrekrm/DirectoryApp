@@ -1,15 +1,38 @@
-﻿using Npgsql;
+﻿using DirectoryApp.Models;
+using DirectoryApp.Models.DatabaseModels;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Npgsql;
 
-var cs = @"Server=127.0.0.1;Port=5432;Database=testdatabase;User Id=postgres;Password=Qasx7865";
+IHost host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices((hostContext, services) => {
+        services.AddDbContext<TableContext>(s => s.UseNpgsql("Server=127.0.0.1;Port=5432;Database=DirectoryApp;User Id=postgres;Password=Qasx7865"));
+    })
+    .Build();
 
-using var con = new NpgsqlConnection(cs);
-con.Open();
+using(var ctx = host.Services.GetService<TableContext>()) {
+    ctx.Members.Add(new Member {
+        UUID = Guid.NewGuid().ToString(),
+        Company = "COMPANY",
+        FullName = "FULLNAME"
+    });
 
-var sql = "SELECT NOW()";
+    ctx.SaveChanges();
+}
 
-using var cmd = new NpgsqlCommand(sql, con);
+host.Run();
 
-var date = cmd.ExecuteScalar().ToString();
-Console.WriteLine($"PostgreSQL version: {date}");
+
+
+//var ctx = new TableContext();
+
+//ctx.Members.Add(new Member {
+//    UUID = Guid.NewGuid().ToString(),
+//    Company = "COMPANY",
+//    FullName = "FULLNAME" 
+//});
+
+//ctx.SaveChanges();
 
 Console.ReadLine();
