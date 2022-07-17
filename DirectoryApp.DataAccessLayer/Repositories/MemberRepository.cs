@@ -11,19 +11,19 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
             _tableContext = tableContext;
         }
 
-        public void Create(Member entity) {
-            _tableContext.Members.Add(entity);
+        public async Task Create(Member entity) {
+            await _tableContext.Members.AddAsync(entity);
         }
 
         public IEnumerable<Member> GetAll() {
-            throw new NotImplementedException();
+            return _tableContext.Members.ToList();
         }
 
-        public void SaveChanges() {
-            _tableContext.SaveChanges();
+        public async Task SaveChanges() {
+            await _tableContext.SaveChangesAsync();
         }
 
-        public void Update(Member entity) {
+        public async Task Update(Member entity) {
             throw new NotImplementedException();
         }
     }

@@ -11,19 +11,19 @@ namespace DirectoryApp.DataAccessLayer.Repositories {
             _tableContext = tableContext;
         }
 
-        public void Create(MemberContact entity) {
-            _tableContext.MemberContacts.Add(entity);
+        public async Task Create(MemberContact entity) {
+            await _tableContext.MemberContacts.AddAsync(entity);
         }
 
         public IEnumerable<MemberContact> GetAll() {
-            throw new NotImplementedException();
+            return _tableContext.MemberContacts.ToList();
         }
 
-        public void SaveChanges() {
-            _tableContext.SaveChanges();
+        public async Task SaveChanges() {
+            await _tableContext.SaveChangesAsync();
         }
 
-        public void Update(MemberContact entity) {
+        public async Task Update(MemberContact entity) {
             throw new NotImplementedException();
         }
     }
