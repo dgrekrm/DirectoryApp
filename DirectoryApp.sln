@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.DataAccessLaye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.TestApplication", "DirectoryApp.TestApplication\DirectoryApp.TestApplication.csproj", "{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.Models", "DirectoryApp.Models\DirectoryApp.Models.csproj", "{11D07049-5573-4C00-83C8-9C15C2E1304A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
