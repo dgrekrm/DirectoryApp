@@ -24,12 +24,16 @@ namespace DirectoryApp.CrudService.Controllers {
         [Route("create")]
         public async Task<IActionResult> Create([FromBody] CreateMemberRequest createMemberRequest) {
 
-            await _memberRepository.Create(new Member {
-                Company = createMemberRequest.Company,
-                FullName = createMemberRequest.FullName
-            });
+            try {
+                await _memberRepository.Create(new Member {
+                    Company = createMemberRequest.Company,
+                    FullName = createMemberRequest.FullName
+                });
 
-            return Ok();
+                return Ok();
+            } catch(Exception ex) {
+                return Ok(ex.ToString());
+            }
         }
 
     }

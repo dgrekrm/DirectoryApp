@@ -5,7 +5,7 @@
       "UpstreamHttpMethod": [
         "Post"
       ],
-      "DownstreamPathTemplate": "/api/member",
+      "DownstreamPathTemplate": "/api/member/create",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -30,14 +30,14 @@
       ],
       "Key": "WeatherForecast"
     }
-  ],
-  "Aggregates": [
-    {
-      "RouteKeys": [
-        "Member",
-        "WeatherForecast"
-      ],
-      "UpstreamPathTemplate": "/{id}"
-    }
   ]
+  //"Aggregates": [
+  //  {
+  //    "RouteKeys": [
+  //      "Member",
+  //      "WeatherForecast"
+  //    ],
+  //    "UpstreamPathTemplate": "/{id}"
+  //  }
+  //]
 }
