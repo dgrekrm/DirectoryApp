@@ -1,0 +1,43 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/member",
+      "UpstreamHttpMethod": [
+        "Post"
+      ],
+      "DownstreamPathTemplate": "/api/member",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6501
+        }
+      ],
+      "Key": "Member"
+    },
+    {
+      "UpstreamPathTemplate": "/weatherforecast",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/weatherforecast",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 6501
+        }
+      ],
+      "Key": "WeatherForecast"
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [
+        "Member",
+        "WeatherForecast"
+      ],
+      "UpstreamPathTemplate": "/{id}"
+    }
+  ]
+}

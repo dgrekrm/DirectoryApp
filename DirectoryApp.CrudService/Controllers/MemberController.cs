@@ -1,4 +1,4 @@
-﻿using DirectoryApp.DataAccessLayer.Repositories;
+﻿using DirectoryApp.DataAccessLayer.BaseModels;
 using DirectoryApp.Models.DatabaseModels;
 using DirectoryApp.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -8,15 +8,22 @@ namespace DirectoryApp.CrudService.Controllers {
     [ApiController]
     public class MemberController : ControllerBase {
 
-        private readonly MemberRepository _memberRepository;
+        private readonly IRepository<Member> _memberRepository;
 
-        public MemberController(MemberRepository memberRepository) {
+        public MemberController(IRepository<Member> memberRepository) {
             _memberRepository = memberRepository;
         }
 
+        [HttpGet]
+        public IActionResult Get() {
+            var members = _memberRepository.GetAll();
+            return Ok(members);
+        }
+
         [HttpPost]
+        [Route("create")]
         public async Task<IActionResult> Create([FromBody] CreateMemberRequest createMemberRequest) {
-            
+
             await _memberRepository.Create(new Member {
                 Company = createMemberRequest.Company,
                 FullName = createMemberRequest.FullName
