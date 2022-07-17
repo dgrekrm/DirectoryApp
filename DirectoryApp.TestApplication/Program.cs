@@ -11,15 +11,19 @@ IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((hostContext, services) => {
         services.AddDbContext<TableContext>(s => s.UseNpgsql("Server=127.0.0.1;Port=5432;Database=DirectoryApp;User Id=postgres;Password=Qasx7865"));
         services.AddScoped<IRepository<Member>, MemberRepository>();
+        services.AddScoped<IRepository<MemberContact>, MemberContactRepository>();
     })
     .Build();
 
-var memberRepository = host.Services.GetService<IRepository<Member>>();
+var memberRepository = host.Services.GetService<IRepository<MemberContact>>();
 
-memberRepository.Create(new Member {
+memberRepository.Create(new MemberContact {
     UUID = Guid.NewGuid().ToString(),
-    Company = "COMPANY",
-    FullName = "FULLNAME"
+    Content = "CONTENT",
+    Email = "EMAIL",
+    Location = "LOCATION",
+    MemberId = "3e8129c9-068f-434a-b81c-43c96d0a8e2e",
+    PhoneNumber = "PHONENUMBER"
 });
 
 memberRepository.SaveChanges();
