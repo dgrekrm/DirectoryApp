@@ -11,11 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.TestApplicatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.Models", "DirectoryApp.Models\DirectoryApp.Models.csproj", "{11D07049-5573-4C00-83C8-9C15C2E1304A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.ReportService", "DirectoryApp.ReportService\DirectoryApp.ReportService.csproj", "{141FD42E-D68E-4C1A-8808-AB6D65B6DB45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.ReportService", "DirectoryApp.ReportService\DirectoryApp.ReportService.csproj", "{141FD42E-D68E-4C1A-8808-AB6D65B6DB45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.CrudService", "DirectoryApp.CrudService\DirectoryApp.CrudService.csproj", "{C8AF836D-D930-48DE-B68A-8756C38F8DEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.CrudService", "DirectoryApp.CrudService\DirectoryApp.CrudService.csproj", "{C8AF836D-D930-48DE-B68A-8756C38F8DEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.Gateway", "DirectoryApp.Gateway\DirectoryApp.Gateway.csproj", "{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.Gateway", "DirectoryApp.Gateway\DirectoryApp.Gateway.csproj", "{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.BrokerListener", "DirectoryApp.BrokerListener\DirectoryApp.BrokerListener.csproj", "{79B14A4E-57E5-424F-8E56-11D38DEB519C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
