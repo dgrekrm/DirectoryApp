@@ -54,5 +54,37 @@ namespace DirectoryApp.CrudService.Controllers {
             return Ok();
         }
 
+        [HttpGet]
+        public IActionResult GetMembers() {
+            return Ok(_memberRepository.Get(s => !s.IsDeleted));
+        }
+
+        [HttpGet]
+        [Route("detail")]
+        public IActionResult GetMemberDetails() {
+            
+            var members = _memberRepository.Get(s => !s.IsDeleted);
+
+            var memberContacts = _memberContactRepository.Get(s => !s.IsDeleted);
+
+            var list = new List<MemberDetailResponse> { };
+
+            foreach(var member in members) {
+
+                var detail = memberContacts.FirstOrDefault(s => s.MemberId == member.UUID);
+
+                list.Add(new MemberDetailResponse {
+                    Company = member.Company,
+                    FullName = member.FullName,
+                    Content = detail?.Content ?? " * ",
+                    Email = detail?.Email ?? " * ",
+                    Location = detail?.Location ?? " * ",
+                    PhoneNumber = detail?.PhoneNumber ?? " * "
+                });
+            }
+
+            return Ok(list);
+        }
+
     }
 }
