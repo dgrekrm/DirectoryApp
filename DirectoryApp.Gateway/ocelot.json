@@ -61,6 +61,21 @@
       "Key": "Member"
     },
     {
+      "UpstreamPathTemplate": "/report",
+      "UpstreamHttpMethod": [
+        "Get"
+      ],
+      "DownstreamPathTemplate": "/api/report",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9501
+        }
+      ],
+      "Key": "Report"
+    },
+    {
       "UpstreamPathTemplate": "/weatherforecast",
       "UpstreamHttpMethod": [
         "Get"
