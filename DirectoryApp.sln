@@ -3,9 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.BusinessLogic", "DirectoryApp.BusinessLogic\DirectoryApp.BusinessLogic.csproj", "{8B82192F-A798-4A6D-B698-726AC04199A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.BusinessLogic", "DirectoryApp.BusinessLogic\DirectoryApp.BusinessLogic.csproj", "{8B82192F-A798-4A6D-B698-726AC04199A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.DataAccessLayer", "DirectoryApp.DataAccessLayer\DirectoryApp.DataAccessLayer.csproj", "{FA8417D0-90DD-47E6-BD95-7F8CEF9E7E28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.DataAccessLayer", "DirectoryApp.DataAccessLayer\DirectoryApp.DataAccessLayer.csproj", "{FA8417D0-90DD-47E6-BD95-7F8CEF9E7E28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.TestApplication", "DirectoryApp.TestApplication\DirectoryApp.TestApplication.csproj", "{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.Models", "DirectoryApp.Models\DirectoryApp.Models.csproj", "{11D07049-5573-4C00-83C8-9C15C2E1304A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.ReportService", "DirectoryApp.ReportService\DirectoryApp.ReportService.csproj", "{141FD42E-D68E-4C1A-8808-AB6D65B6DB45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.CrudService", "DirectoryApp.CrudService\DirectoryApp.CrudService.csproj", "{C8AF836D-D930-48DE-B68A-8756C38F8DEC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryApp.Gateway", "DirectoryApp.Gateway\DirectoryApp.Gateway.csproj", "{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryApp.BrokerListener", "DirectoryApp.BrokerListener\DirectoryApp.BrokerListener.csproj", "{79B14A4E-57E5-424F-8E56-11D38DEB519C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +33,30 @@ Global
 		{FA8417D0-90DD-47E6-BD95-7F8CEF9E7E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA8417D0-90DD-47E6-BD95-7F8CEF9E7E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA8417D0-90DD-47E6-BD95-7F8CEF9E7E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF3D616-E2DF-4B5C-95F2-2BD9E58547FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D07049-5573-4C00-83C8-9C15C2E1304A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{141FD42E-D68E-4C1A-8808-AB6D65B6DB45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{141FD42E-D68E-4C1A-8808-AB6D65B6DB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{141FD42E-D68E-4C1A-8808-AB6D65B6DB45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{141FD42E-D68E-4C1A-8808-AB6D65B6DB45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8AF836D-D930-48DE-B68A-8756C38F8DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8AF836D-D930-48DE-B68A-8756C38F8DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8AF836D-D930-48DE-B68A-8756C38F8DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8AF836D-D930-48DE-B68A-8756C38F8DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F52A2E-04E3-4BF6-92BB-5C96B23328D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B14A4E-57E5-424F-8E56-11D38DEB519C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
